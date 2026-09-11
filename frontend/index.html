@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentation Extractor</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">PE</div>
+        <div>
+          <div class="brand-title">Presentation Extractor</div>
+          <div class="brand-sub">Financial document analysis</div>
+        </div>
+      </div>
+
+      <label class="upload-btn" for="file-input">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 16V4M12 4L7 9M12 4L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16v3a2 2 0 002 2h12a2 2 0 002-2v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Upload PDF</span>
+      </label>
+      <input id="file-input" type="file" accept="application/pdf" multiple hidden />
+
+      <div class="doc-list" id="doc-list">
+        <div class="empty-hint">No PDFs uploaded yet.</div>
+      </div>
+
+      <div class="sidebar-footer" id="deepseek-status">
+        <span class="dot dot-unknown"></span> Checking DeepSeek connection…
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-title" id="active-doc-title">Upload a PDF to get started</div>
+        <div class="topbar-actions">
+          <div class="search-wrap">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input id="search-input" type="text" placeholder="Search headings, key points, tables…" disabled />
+          </div>
+          <button id="print-btn" class="icon-btn" title="Print / Save as PDF" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9V3h12v6M6 18H4a1 1 0 01-1-1v-6a1 1 0 011-1h16a1 1 0 011 1v6a1 1 0 01-1 1h-2M6 14h12v7H6v-7z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div id="search-results" class="search-results" hidden></div>
+
+      <div class="content" id="content">
+        <div class="placeholder">
+          <div class="placeholder-icon">📄</div>
+          <h2>No document selected</h2>
+          <p>Upload one or more presentation PDFs on the left. Each page is read carefully, then
+             extracted into a consistent format — heading, key metrics, key points, tables, and
+             charts/graphs (shown as real data tables wherever the source PDF contains the figures).</p>
+        </div>
+      </div>
+    </main>
+
+    <aside class="outline" id="outline">
+      <div class="outline-title">Document Outline</div>
+      <div class="outline-list" id="outline-list">
+        <div class="empty-hint">Open a document to see its page-by-page outline here.</div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+storage/db/*.json
+storage/uploads/*
+storage/pages/*
+!storage/uploads/.gitkeep
+!storage/pages/.gitkeep
